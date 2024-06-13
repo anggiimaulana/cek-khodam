@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Cek Khodam</h1>
+        <div class="input">
+            <form id="khodamForm">
+                <input type="text" placeholder="Nama lengkap" name="nama" id="nama">
+                <button type="button" name="khodam" id="khodam">Cek</button>
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script>
+        function cekKhodam() {
+            const khodams = [
+                "Macan Putih",
+                "Harimau Sumatra",
+                "Elang Jawir",
+                "Jin Tomang",
+                "C++",
+                "Orang Hitam",
+                "Hiu Megawati",
+                "Must a Nice",
+                "Banteng Kegelapan",
+                "Kera Sakti",
+                "Singa Merah",
+                "Paus tad",
+                "Hiu Tasik",
+                "Badak Bercula 2",
+                "Harimau Bodas",
+                "Elang Tiga Roda",
+                "Wirosableng",
+                "Cicak di dinding",
+                "Kadal Gurun",
+                "Harimau Siliwangi",
+                "Macan Jawa",
+                "Ular Python",
+                "Cacing Besar Alaska",
+                "Landak Kuning",
+                "Macan Rawr",
+                "Banteng Merah"
+            ];
+            const nama = document.getElementById("nama").value;
+            if (nama.trim() === "") {
+                alert("Harap masukkan nama anda");
+                return;
+            }
+            const randomKhodam = khodams[Math.floor(Math.random() * khodams.length)];
+            document.getElementById("result").innerHTML = `Khodam ${nama} adalah <strong>${randomKhodam}</strong>`;
+            console.log(`Khodam ${nama} adalah ${randomKhodam}`);
+        }
+
+        document.getElementById("khodamForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            cekKhodam();
+        });
+
+        document.getElementById("khodam").addEventListener("click", function(event) {
+            event.preventDefault();
+            cekKhodam();
+        });
+    </script>
+</body>
+</html>
